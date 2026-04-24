@@ -1,0 +1,44 @@
+# Projecte GI3P - DAM1_Grup2
+# Entorn de desenvolupament amb Docker
+
+services:
+  # 1. Servidor web amb PHP i Apache
+  web:
+    build:
+      context: ./images
+      dockerfile: Dockerfile_php
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      # Variables per a la connexió a la base de dades
+      DB_HOST: db
+      DB_USER: a25abualijab_grup2
+      DB_PASSWORD: "@ErikerAbubakar2"
+      DB_NAME: a25abualijab_DAM1_GI3P_Grup2
+    depends_on:
+      - db
+
+  # 2. Base de dades MySQL
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: a25abualijab_DAM1_GI3P_Grup2
+      MYSQL_USER: a25abualijab_grup2
+      MYSQL_PASSWORD: "@ErikerAbubakar2"
+      LANG: C.UTF-8
+    volumes:
+      - ./db_data:/var/lib/mysql
+      - ./db_init:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+
+  # 3. Adminer - Client web per gestionar MySQL
+  adminer:
+    image: adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
