@@ -2,6 +2,9 @@
 <?php include 'connexio.php'; ?>
     <h1>Registra la teva incidència:</h1>
 <div style="max-width: 600px; margin: 2rem auto; background: white; padding: 2rem;">
+    <?php if (isset($_GET['error']) && $_GET['error'] == 'descripcio'): ?>
+        <p style="color: red;">Has d'escriure una descripció tio</p>
+    <?php endif; ?>
     <form method="POST" action="guardar_incidencia.php">
     <p style="color: black;">Departament:</p>
     <select name="departament_id" style="width: 100%; padding: 0.5 rem;">
@@ -14,11 +17,10 @@
         ?>
         </select>
         <p style="color: black;">Descripció:</p>
-
         <textarea name="descripcio" rows="4" style="width: 100%; padding: 0.5 rem;"></textarea>
         <br>
         <br>
         <button type="submit">Registrar</button>
-</form>
+    </form>
 </div>
 <?php include 'footer.php'; ?>

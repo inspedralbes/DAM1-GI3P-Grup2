@@ -20,7 +20,7 @@
             exit;
         else:
         ?>
-            <p style="color: red;">No coneixem cap tècnic amb aquest nom guapo</p>
+            <p style="color: red;">No coneixem cap tècnic amb aquest nom guapo 🤨</p>
         <?php endif; ?>
     <?php endif; ?>
 </div>
