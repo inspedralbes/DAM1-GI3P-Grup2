@@ -1,5 +1,7 @@
-<?php include 'header.php'; ?>
-<?php include 'connexio.php'; ?>
+<?php
+include 'connexio.php';
+include 'header.php'; 
+?>
 
 <h1>Llistat d'incidències</h1>
 
@@ -25,6 +27,7 @@
             <th>Tècnic</th>
             <th>Estat</th>
             <th>Acció</th>
+            <th>Eliminar</th>
         </tr>
 
         <?php while ($row = $result->fetch_assoc()):
@@ -36,7 +39,7 @@
                 $color_fila = '#d4edda';
             }
         ?>
-        <tr style="background: <?php echo $color_fila; ?>;">
+        <tr style="background: <?php echo $color_fila; ?>;" id="fila-<?php echo $row['id_inc']; ?>">
             <td><?php echo $row['id_inc']; ?></td>
             <td><?php echo $row['departament']; ?></td>
             <td><?php echo $row['data_ini']; ?></td>
@@ -45,11 +48,22 @@
             <td><?php echo $row['tecnic'] ?? '-'; ?></td>
             <td><?php echo $row['data_fi'] ? 'Tancada' : 'Oberta'; ?></td>
             <td><a href="modificar.php?id=<?php echo $row['id_inc']; ?>">Editar</a></td>
-        </tr>
+            <td><button class="eliminar" data-id="<?php echo $row['id_inc']; ?>">Eliminar</button></td>
         <?php endwhile; ?>
     </table>
     <br>
         <button style="background: #300c30; color: white;" onclick="window.location.href='quesito.php'">Veure incidències en format quesito</button>
     </div>
 </div>
+
+<script>
+document.querySelectorAll('.eliminar').forEach(btn => {
+    btn.onclick = () => {
+        let id = btn.getAttribute('data-id');
+        fetch(window.location.href + '?eliminar=' + id);
+        document.getElementById('fila-' + id).remove();
+    };
+});
+</script>
+
 <?php include 'footer.php'; ?>
