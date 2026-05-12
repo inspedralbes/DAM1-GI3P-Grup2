@@ -48,5 +48,8 @@
         </tr>
         <?php endwhile; ?>
     </table>
+    <br>
+        <button style="background: #300c30; color: white;" onclick="window.location.href='quesito.php'">Veure incidències en format quesito</button>
+    </div>
 </div>
 <?php include 'footer.php'; ?>
