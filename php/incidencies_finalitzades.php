@@ -4,6 +4,7 @@
 
    <h1>Incidencies finalitzades</h1>
    <header>
+    //Estil de la taula
        <div style="max-width: 900px; margin: 2rem auto; background: white; padding: 2rem; color: black;">
            <?php
            $sql = "SELECT i.id_inc, i.descripcio, i.data_ini, i.data_fi, i.prioritat,
@@ -16,6 +17,7 @@
         ORDER BY i.id_inc ASC";
            $result = $conn->query($sql);
            ?>
+           //Taula per mostrar les dades de les incidencies 
            <table border="1" style="width: auto; margin: 0 auto; border-collapse: collapse;">
                <tr style="background: white;">
                    <th>ID</th>
@@ -29,7 +31,8 @@
                    <th>Actuacions</th>
                </tr>
        <?php while ($row = $result->fetch_assoc()): ?>
-       <tr>
+       //Comanda per mostrar les dades de les incidencies finalitzades
+        <tr>
            <td><?php echo $row['id_inc']; ?></td>
            <td><?php echo $row['departament']; ?></td>
            <td><?php echo $row['data_ini']; ?></td>

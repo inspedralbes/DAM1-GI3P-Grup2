@@ -29,7 +29,7 @@
             Actualitzar estat
         </a>
 
-        <a href="taula.php" class="opcio">
+        <a href="identificacio.php" class="opcio">
             <i class="fas fa-clipboard-list"></i>
             Historial de treballs
         </a>

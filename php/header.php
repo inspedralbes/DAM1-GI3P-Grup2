@@ -6,6 +6,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
+    //Titol i estils del header
     <title>GI3P - Gestió d'Incidències</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -18,6 +19,7 @@ require_once __DIR__ . '/vendor/autoload.php';
                <a href="index.php" class="logo-item">
   <img src="images/IP.jpg" alt="Logo IP">
 </a>
+        //Text del header
             </div>
             <div class="brand-text">
                 <span class="code">GI3P</span>
@@ -25,6 +27,7 @@ require_once __DIR__ . '/vendor/autoload.php';
                 <span>Gestor d'incidències</span>
             </div>
         </div>
+        //Enllaços del header de inici, sobre nosaltres i ajuda
         <nav class="nav">
             <a href="index.php" class="nav-item">
                 <img src="images/inici.png" alt="">
