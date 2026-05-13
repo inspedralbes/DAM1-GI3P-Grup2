@@ -14,6 +14,7 @@
         Incidències assignades
     </a>
 
+<<<<<<< HEAD
     <a href="identificacio.php" class="opcio">
         <i class="fas fa-sync-alt"></i>
         Actualitzar estat
@@ -26,3 +27,12 @@
 </div>
 
 <?php include 'footer.php'; ?>
+=======
+        <a href="identificacio.php" class="opcio">
+            <i class="fas fa-clipboard-list"></i>
+            Historial de treballs
+        </a>
+    </div>
+</body>
+</html>
+>>>>>>> f5fea499bbbcb0c20cb1cd0d25168db9b5bd7891

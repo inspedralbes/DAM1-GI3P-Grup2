@@ -1,7 +1,9 @@
 <?php include 'header.php'; ?>
 <?php include 'connexio.php'; ?>
     <h1>Gestionar Tècnics</h1>
+    //Estil del formulari 
     <div style="max-width: 600px; margin: 2rem auto; background: white; padding: 2rem;">
+    //Comandas relacionades amb els tècnics
     <?php
     if (isset($_GET['eliminar'])) {
         $conn->query("DELETE FROM tecnics WHERE id_tecnic='{$_GET['eliminar']}'");
@@ -11,6 +13,7 @@
     }
     $tecnicos = $conn->query("SELECT id_tecnic, nom FROM tecnics ORDER BY nom");
     ?>
+    //Formulari per crear untècnic
     <form method="POST">
         <p><label style="color: black;">Nou tècnic</label>
         <br>
@@ -19,6 +22,7 @@
         </p>
     </form>
     <hr>
+    //Llista de tècnics
     <h3 style="color: black;">Llista de tècnics</h3>
     <table style="width: 100%; border-collapse: collapse;">
         <?php while ($t = $tecnicos->fetch_assoc()): ?>

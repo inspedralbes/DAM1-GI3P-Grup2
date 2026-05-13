@@ -1,6 +1,5 @@
 <?php
 
-
 $servername = "db";
 $username = "a25abualijab_grup2";  // Username
 $password = "@ErikerAbubakar2";  // Password
