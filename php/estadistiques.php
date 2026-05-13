@@ -30,6 +30,7 @@ $per_dia = $collection->aggregate([
     ['$sort' => ['_id' => -1]],
     ['$limit' => 7]
 ]);
+
 ?>
 
 <div style="max-width: 800px; margin: 2rem auto; background: white; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
@@ -44,7 +45,7 @@ $per_dia = $collection->aggregate([
         </div>
 
         <div style="background: #f5f5f5; border-radius: 15px; padding: 1.5rem; margin-bottom: 2rem;">
-            <h3 style="color: #300c55; margin-top: 0;">TOP 5 PÀGINES MÉS VISITADES</h3>
+            <h3 style="color: #300c55; margin-top: 0;">TOP 5 PAGINES MES VISITADES</h3>
             <ul style="list-style: none; padding: 0;">
                 <?php foreach ($pagines as $p): ?>
                     <li style="border-bottom: 1px solid #e0e0e0; padding: 0.5rem 0; color: #333;">
@@ -55,7 +56,7 @@ $per_dia = $collection->aggregate([
         </div>
 
         <div style="background: #f5f5f5; border-radius: 15px; padding: 1.5rem;">
-            <h3 style="color: #300c55; margin-top: 0;">ACCESSOS DIARIS (ÚLTIMS 7 DIES)</h3>
+            <h3 style="color: #300c55; margin-top: 0;">ACCESSOS DIARIS (ULTIMS 7 DIES)</h3>
             <ul style="list-style: none; padding: 0;">
                 <?php foreach ($per_dia as $d): ?>
                     <li style="border-bottom: 1px solid #e0e0e0; padding: 0.5rem 0; color: #333;">
