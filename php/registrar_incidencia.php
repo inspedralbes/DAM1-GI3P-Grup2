@@ -20,10 +20,11 @@
         <textarea name="descripcio" rows="4" style="width: 100%; padding: 0.5 rem;"></textarea>
         <br>
         <br>
-        <button type="submit">Registrar</button>
-        <?php if (isset($_GET['success']) && $_GET['success'] == 'true'): ?>
-            <p style="color: green;">Incidència registrada correctament</p>
+        <?php if (isset($_GET['success']) && $_GET['success'] == '1'): ?>
+        <p style="color: green;">Incidència registrada correctament amb ID: <?php echo $_GET['id']; ?></p>
         <?php endif; ?>
+        <button type="submit">Registrar</button>
+        
     </form>
 </div>
 <?php include 'footer.php'; ?>
