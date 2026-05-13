@@ -1,6 +1,6 @@
 <?php
 require_once 'logger.php';
-logAcces($_SERVER['REQUEST_URI']);
+require_once __DIR__ . '/vendor/autoload.php';
 ?>
 <!DOCTYPE html>
 <html lang="ca">

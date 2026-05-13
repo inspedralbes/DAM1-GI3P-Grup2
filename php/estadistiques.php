@@ -1,7 +1,6 @@
 <?php
 require 'vendor/autoload.php';
 include 'header.php';
-
 // Conectar a MongoDB
 if (getenv('MONGODB_URI')) {
     $uri = getenv('MONGODB_URI');

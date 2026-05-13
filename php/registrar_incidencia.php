@@ -3,7 +3,7 @@
     <h1>Registra la teva incidència:</h1>
 <div style="max-width: 600px; margin: 2rem auto; background: white; padding: 2rem;">
     <?php if (isset($_GET['error']) && $_GET['error'] == 'descripcio'): ?>
-        <p style="color: red;">Has d'escriure una descripció tio</p>
+        <p style="color: red;">Has d'escriure una descripció</p>
     <?php endif; ?>
     <form method="POST" action="guardar_incidencia.php">
     <p style="color: black;">Departament:</p>
@@ -21,6 +21,9 @@
         <br>
         <br>
         <button type="submit">Registrar</button>
+        <?php if (isset($_GET['success']) && $_GET['success'] == 'true'): ?>
+            <p style="color: green;">Incidència registrada correctament</p>
+        <?php endif; ?>
     </form>
 </div>
 <?php include 'footer.php'; ?>
