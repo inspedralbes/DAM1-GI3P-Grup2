@@ -1,14 +1,14 @@
 <?php include 'header.php'; ?>
 <?php include 'connexio.php'; ?>
-//Demanem les dades de la incidencia
+<!--Demanem les dades de la incidencia-->
 <?php
 $id_inc = $_GET['id_inc'];
 ?>
    <h1>Estat de la teva incidencia:</h1>
    <header>
-    //Estil de la taula
+    <!--Estil de la taula-->
        <div style="max-width: 900px; margin: 2rem auto; background: white; padding: 2rem; color: black;">
-           //Per mostrar les dades de la incidencia
+           <!--Per mostrar les dades de la incidencia-->
            <?php
            $sql = "SELECT i.id_inc, i.descripcio, i.data_ini, i.data_fi, i.prioritat,
         d.nom AS departament,
@@ -19,7 +19,7 @@ $id_inc = $_GET['id_inc'];
         WHERE i.id_inc = '$id_inc'";
            $result = $conn->query($sql);
            ?>
-           //Taula per mostrar les dades de la incidencia
+           <!--Taula per mostrar les dades de la incidencia-->
            <table border="1" style="width: auto; margin: 0 auto; border-collapse: collapse;">
                <tr style="background: white;">
                    <th>ID</th>

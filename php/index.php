@@ -1,11 +1,9 @@
 <?php include 'header.php'; ?>
-    // titol i opcions
+    <!--Titol i opcions-->
     
     <h1>Benvinguts a la gestió d'incidències</h1>
     <p>Selecciona com vols accedir:</p>
-    
-    //Opcions
-    
+    <!--Opcions-->
     <div class="opcions">
         <a href="usuari.php" class="opcio">
             <i class="fas fa-user"></i><br>

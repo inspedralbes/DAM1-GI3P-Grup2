@@ -3,7 +3,7 @@
 
 <div style="max-width: 500px; margin: 2rem auto; background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
     <h1 style="color: black;">Identifica't</h1>
-    
+
     <div style="height: 2px; background: #764ba2; width: 100%; margin: 0.5rem 0 1.5rem 0;"></div>
 
     <?php if (!isset($_GET['nombre'])): ?>
@@ -17,7 +17,7 @@
         <?php
         $nombre = $_GET['nombre'];
         $tecnic = $conn->query("SELECT id_tecnic, nom FROM tecnics WHERE nom = '$nombre'")->fetch_assoc();
-        
+ 
         if ($tecnic):
             echo "<script>window.location.href = 'actualitzar_estat.php?tecnic_id=" . $tecnic['id_tecnic'] . "';</script>";
             exit;
