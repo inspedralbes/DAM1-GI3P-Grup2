@@ -28,8 +28,17 @@ $tecnic = $conn->query("SELECT nom FROM tecnics WHERE id_tecnic='$tecnic_id'")->
             <th>Estat</th>
             <th>Acció</th>
         </tr>
-        <?php while ($row = $result->fetch_assoc()): ?>
+        <?php while ($row = $result->fetch_assoc()):
+            if ($row['prioritat'] == 'Alta') {
+                $color_fila = '#ffcccc';
+            } elseif ($row['prioritat'] == 'Mitja') {
+                $color_fila = '#fff3cd';
+            } else {
+                $color_fila = '#d4edda';
+            }
+        ?>
         <tr>
+                    <tr style="background: <?php echo $color_fila; ?>;" id="fila-<?php echo $row['id_inc']; ?>">
             <td><?= $row['id_inc'] ?></td>
             <td><?= $row['departament'] ?></td>
             <td><?= $row['data_ini'] ?></td>

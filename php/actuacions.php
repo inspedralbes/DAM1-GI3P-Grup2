@@ -2,7 +2,7 @@
 <?php include 'connexio.php'; ?>
 
 <h1>Gestionar incidència</h1>
-    /<!--Estil del formulari-->
+    <!--Estil del formulari-->
 <div style="max-width: 600px; margin: 2rem auto; background: white; padding: 2rem; color: black;">
     <?php
     $id = $_GET['id'];

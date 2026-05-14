@@ -32,8 +32,17 @@
         </tr>
         
         <!-- Bucle per mostrar cada incidencia finalitzada -->
-        <?php while ($row = $result->fetch_assoc()): ?>
+        <?php while ($row = $result->fetch_assoc()):
+            if ($row['prioritat'] == 'Alta') {
+                $color_fila = '#ffcccc';
+            } elseif ($row['prioritat'] == 'Mitja') {
+                $color_fila = '#fff3cd';
+            } else {
+                $color_fila = '#d4edda';
+            }
+        ?>
         <tr>
+                    <tr style="background: <?php echo $color_fila; ?>;" id="fila-<?php echo $row['id_inc']; ?>">
             <td><?php echo $row['id_inc']; ?></td>
             <td><?php echo $row['departament']; ?></td>
             <td><?php echo $row['data_ini']; ?></td>
