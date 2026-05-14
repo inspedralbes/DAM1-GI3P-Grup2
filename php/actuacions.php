@@ -2,7 +2,7 @@
 <?php include 'connexio.php'; ?>
 
 <h1>Gestionar incidència</h1>
-    //Estil del formulari
+    /<!--Estil del formulari-->
 <div style="max-width: 600px; margin: 2rem auto; background: white; padding: 2rem; color: black;">
     <?php
     $id = $_GET['id'];
@@ -31,7 +31,7 @@
             <option value="Tancada" <?= $estat_actual == 'Tancada' ? 'selected' : '' ?>>Tancada</option>
         </select>
         <br><br>
-        // Formulari de l'actuació
+        <!--Formulari de l'actuació-->
         <p><strong>Descripció de l'Actuació</strong></p>
         <textarea name="descripcio_actuacio" rows="4" style="width: 100%; padding: 0.5rem;" required></textarea>
         <br><br>

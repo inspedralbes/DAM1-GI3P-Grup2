@@ -1,10 +1,9 @@
 <?php include 'header.php'; ?>
-
+<!--Àrea d'Usuari-->
     <h1>Àrea d'Usuari</h1>
     <p>Selecciona què vols fer:</p>
-
     <header>
-        
+<!--Opcions de l'usuari-->     
     <div class="opcions">
         <a href="registrar_incidencia.php" class="opcio">
             <i class="fas fa-plus-circle"></i><br>

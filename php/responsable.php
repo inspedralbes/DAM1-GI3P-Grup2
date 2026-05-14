@@ -1,8 +1,8 @@
 <?php include 'header.php'; ?>
-
+<!--Àrea del responsable-->
 <h1>Àrea de Responsable</h1>
 <p>Gestiona i supervisa totes les incidències:</p>
-
+<!--Opcions del responsable-->
 <div class="opcions">
     <a href="totes_incidencies.php" class="opcio">
         <i class="fas fa-list"></i>

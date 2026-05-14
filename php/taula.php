@@ -4,9 +4,12 @@
 $tecnic_id = $_GET['tecnic_id'];
 $tecnic = $conn->query("SELECT nom FROM tecnics WHERE id_tecnic='$tecnic_id'")->fetch_assoc();
 ?>
+<!--Titol de la pàgina-->
 <h1>Incidències assignades a <?= $tecnic['nom'] ?></h1>
+<!--Estil de la taula i del contingut-->
 <div style="max-width: 1200px; margin: 2rem auto; background: white; padding: 2rem;">
-    <?php
+<!--Comanda per demanar les dades a la BD-->  
+  <?php
     $sql = "SELECT i.id_inc, i.descripcio, i.data_ini, i.data_fi, i.prioritat,
                    d.nom AS departament
             FROM incidencies i
@@ -25,6 +28,7 @@ $tecnic = $conn->query("SELECT nom FROM tecnics WHERE id_tecnic='$tecnic_id'")->
             <th>Estat</th>
         </tr>
         <?php while ($row = $result->fetch_assoc()): ?>
+        <!--Comanda per mostrar les dades de les incidencies-->
         <tr>
             <td><?= $row['id_inc'] ?></td>
             <td><?= $row['departament'] ?></td>

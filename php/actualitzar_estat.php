@@ -1,13 +1,13 @@
 <?php include 'header.php'; ?>
 <?php include 'connexio.php'; ?>
-//Demanem les dades del tècnic
+<!--Demanem les dades del tècnic-->
 <?php
 $tecnic_id = $_GET['tecnic_id'];
 $tecnic = $conn->query("SELECT nom FROM tecnics WHERE id_tecnic='$tecnic_id'")->fetch_assoc();
 ?>
 <h1>Incidències assignades a <?= $tecnic['nom'] ?></h1>
 <div style="max-width: 1200px; margin: 2rem auto; background: white; padding: 2rem;">
-    //Demanem les dades a la BD
+    <!--Demanem les dades a la BD-->
     <?php
     $sql = "SELECT i.id_inc, i.descripcio, i.data_ini, i.data_fi, i.prioritat,
                    d.nom AS departament
@@ -17,7 +17,7 @@ $tecnic = $conn->query("SELECT nom FROM tecnics WHERE id_tecnic='$tecnic_id'")->
             ORDER BY i.data_ini DESC";
     $result = $conn->query($sql);
     ?>
-   //Taula amb les incidències del tècnic
+   <!--Taula amb les incidències del tècnic-->
    <table border="1" style="width: 100%; border-collapse: collapse; color: black;">
         <tr style="background: #f0f0f0;">
             <th>ID</th>

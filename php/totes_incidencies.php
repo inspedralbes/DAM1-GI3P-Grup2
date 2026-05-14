@@ -18,7 +18,7 @@ include 'header.php';
 
     <?php
     $ordre = $_GET['ordre'] ?? 'id_asc';
-    
+    //Comanda per ordenar les incidències segons la seva prioritat o data d'inici
     if ($ordre == 'prioritat') {
         $order_by = "FIELD(i.prioritat, 'Alta', 'Mitja', 'Baixa'), i.data_ini DESC";
     } elseif ($ordre == 'data_desc') {
@@ -26,7 +26,7 @@ include 'header.php';
     } else {
         $order_by = "i.id_inc ASC";
     }
-    
+    //Comanda per demanar dades a la BD
     $sql = "SELECT i.id_inc, i.descripcio, i.data_ini, i.data_fi, i.prioritat,
             d.nom AS departament,
             t.nom as tecnic
@@ -49,7 +49,7 @@ include 'header.php';
             <th>Acció</th>
             <th>Eliminar</th>
         </tr>
-
+<!--Comanda per mostrar les dades de les incidències amb color segons la seva prioritat-->
         <?php while ($row = $result->fetch_assoc()):
             if ($row['prioritat'] == 'Alta') {
                 $color_fila = '#ffcccc';
@@ -59,6 +59,7 @@ include 'header.php';
                 $color_fila = '#d4edda';
             }
         ?>
+        <!--Ta ula per mostrar les dades de les incidencies de la BD-->
         <tr style="background: <?php echo $color_fila; ?>;" id="fila-<?php echo $row['id_inc']; ?>">
             <td><?php echo $row['id_inc']; ?></td>
             <td><?php echo $row['departament']; ?></td>
@@ -76,7 +77,7 @@ include 'header.php';
     <br>
     <button style="background: #300c30; color: white;" onclick="window.location.href='quesito.php'">Veure incidències en format quesito</button>
 </div>
-
+<!--Comanda per eliminar cada incidència-->
 <script>
 document.querySelectorAll('.eliminar').forEach(btn => {
     btn.onclick = () => {
