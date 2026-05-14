@@ -4,12 +4,16 @@
 <div style="max-width: 600px; margin: 2rem auto; background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
     <h1 style="color: black;">Registrar incidència</h1>
     
-    <div style="height: 2px; background: #764ba2; width: 600px; margin: 0.5rem 0 1.5rem 0;"></div>
+    <div style="height: 2px; background: #764ba2; width: 100%; margin: 0.5rem 0 1.5rem 0;"></div>
 
     <?php if (isset($_GET['error']) && $_GET['error'] == 'descripcio'): ?>
         <p style="color: red;">Has d'escriure una descripció</p>
     <?php endif; ?>
 
+    <?php if (isset($_GET['success']) && isset($_GET['id'])): ?>
+        <p style="color: green;">Incidència registrada correctament amb ID: <?php echo $_GET['id']; ?></p>
+        <p style="font-size: smaller; color: green;">Recorda aquest ID per fer el seguiment de la teva incidència.</p>
+    <?php endif; ?>
     <form method="POST" action="guardar_incidencia.php">
         <p style="color: black;"><strong>Departament</strong></p>
         <select name="departament_id" style="width: 100%; padding: 0.5rem; color: black;">

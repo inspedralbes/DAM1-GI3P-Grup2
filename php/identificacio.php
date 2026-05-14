@@ -1,22 +1,19 @@
 <?php include 'header.php'; ?>
 <?php include 'connexio.php'; ?>
-    // Formulari d'identificació per al tècnic
 
-    <h1>Identifica't</h1>
+<div style="max-width: 500px; margin: 2rem auto; background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <h1 style="color: black;">Identifica't</h1>
     
-    //estil del formulari
+    <div style="height: 2px; background: #764ba2; width: 100%; margin: 0.5rem 0 1.5rem 0;"></div>
 
-    <div style="max-width: 600px; margin: 2rem auto; background: white; padding: 2rem;">
     <?php if (!isset($_GET['nombre'])): ?>
-        //Formulari d'identificació
-        <p style="color: black;">Digues el teu nom de tècnic:</p>
         <form method="GET" action="">
-            <input type="text" name="nombre" style="width: 100%; padding: 0.5rem;" required>
+            <p style="color: black; font-weight: bold;">Digues el teu nom de tècnic</p>
+            <input type="text" name="nombre" style="width: 100%; padding: 0.5rem; border-radius: 8px; border: 1px solid #ccc;" required>
             <br><br>
-            <button type="submit">Identificar-me</button>
+            <button type="submit" style="background: #300c55; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px;">Identificar-me</button>
         </form>
     <?php else: ?>
-        //Comanda a la BD
         <?php
         $nombre = $_GET['nombre'];
         $tecnic = $conn->query("SELECT id_tecnic, nom FROM tecnics WHERE nom = '$nombre'")->fetch_assoc();
@@ -26,8 +23,8 @@
             exit;
         else:
         ?>
-        //Comanda si hi ha un error
-            <p style="color: red;">No coneixem cap tècnic amb aquest nom </p>
+            <p style="color: red;">No coneixem cap tècnic amb aquest nom</p>
+            <a href="identificacio.php" style="color: #300c55;">Tornar</a>
         <?php endif; ?>
     <?php endif; ?>
 </div>
