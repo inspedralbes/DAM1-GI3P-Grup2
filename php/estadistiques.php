@@ -2,6 +2,7 @@
 require 'vendor/autoload.php';
 include 'header.php';
 
+// Connexió a MongoDB
 $uri = getenv('MONGODB_URI');
 if (!$uri && isset($_SERVER['MONGODB_URI'])) {
     $uri = $_SERVER['MONGODB_URI'];
@@ -11,6 +12,7 @@ if (!$uri) {
     $uri = "mongodb://mongo:27017";
 }
 
+// Agafem les estadistiques de MongoDB
 $client = new MongoDB\Client($uri);
 $collection = $client->gi3p_logs->accessos;
 
@@ -30,20 +32,22 @@ $per_dia = $collection->aggregate([
     ['$sort' => ['_id' => -1]],
     ['$limit' => 7]
 ]);
-
 ?>
 
+<!-- Estil de les estadistiques -->
 <div style="max-width: 800px; margin: 2rem auto; background: white; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
     <div style="background: linear-gradient(135deg, #300c55, #5e2a8c); padding: 1.5rem; text-align: center;">
         <h1 style="margin: 0; color: white;">Estadístiques d'accés</h1>
     </div>
     
+    <!-- Mostrem les estadistiques del total d'accesos -->
     <div style="padding: 2rem;">
         <div style="background: #f5f5f5; border-radius: 15px; padding: 1.5rem; margin-bottom: 2rem; text-align: center;">
             <p style="color: #666; margin: 0; font-size: 0.9rem;">TOTAL D'ACCESSOS</p>
             <p style="color: #300c55; font-size: 3rem; font-weight: bold; margin: 0;"><?= $total ?></p>
         </div>
 
+        <!-- Mostrem les estadistiques de les pàgines més visitades -->
         <div style="background: #f5f5f5; border-radius: 15px; padding: 1.5rem; margin-bottom: 2rem;">
             <h3 style="color: #300c55; margin-top: 0;">TOP 5 PAGINES MES VISITADES</h3>
             <ul style="list-style: none; padding: 0;">
@@ -55,6 +59,7 @@ $per_dia = $collection->aggregate([
             </ul>
         </div>
 
+        <!-- Mostrem les estadistiques dels accessos diaris -->
         <div style="background: #f5f5f5; border-radius: 15px; padding: 1.5rem;">
             <h3 style="color: #300c55; margin-top: 0;">ACCESSOS DIARIS (ULTIMS 7 DIES)</h3>
             <ul style="list-style: none; padding: 0;">

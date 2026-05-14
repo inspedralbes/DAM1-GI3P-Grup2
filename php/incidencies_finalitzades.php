@@ -2,8 +2,9 @@
 <?php include 'connexio.php'; ?>
 
 <h1>Incidencies finalitzades</h1>
-
 <div style="max-width: 900px; margin: 2rem auto; background: white; padding: 2rem; color: black;">
+    
+    <!-- Consulta per obtenir les incidencies finalitzades -->
     <?php
     $sql = "SELECT i.id_inc, i.descripcio, i.data_ini, i.data_fi, i.prioritat,
             d.nom AS departament,
@@ -16,6 +17,7 @@
     $result = $conn->query($sql);
     ?>
     
+    <!-- Taula per mostrar les incidencies finalitzades -->
     <table border="1" style="width: auto; margin: 0 auto; border-collapse: collapse;">
         <tr style="background: #f0f0f0;">
             <th>ID</th>
@@ -28,6 +30,8 @@
             <th>Estat</th>
             <th>Actuacions</th>
         </tr>
+        
+        <!-- Bucle per mostrar cada incidencia finalitzada -->
         <?php while ($row = $result->fetch_assoc()): ?>
         <tr>
             <td><?php echo $row['id_inc']; ?></td>
