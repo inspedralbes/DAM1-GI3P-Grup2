@@ -13,10 +13,10 @@
         <i class="fas fa-tools"></i>
         Incidències assignades
     </a>
-        <a href="identificacio.php" class="opcio">
+        <a href="identificacio_his.php" class="opcio">
             <i class="fas fa-clipboard-list"></i>
             Historial de treballs
         </a>
     </div>
-</body>
+</body> 
 </html>

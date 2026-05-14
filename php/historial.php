@@ -5,7 +5,7 @@
 $tecnic_id = $_GET['tecnic_id'];
 $tecnic = $conn->query("SELECT nom FROM tecnics WHERE id_tecnic='$tecnic_id'")->fetch_assoc();
 ?>
-<h1>Incidències assignades a <?= $tecnic['nom'] ?></h1>
+<h1>Historial de incidencies de: <?= $tecnic['nom'] ?></h1>
 <div style="max-width: 1200px; margin: 2rem auto; background: white; padding: 2rem;">
     <!--Demanem les dades a la BD-->
     <?php
@@ -13,7 +13,8 @@ $tecnic = $conn->query("SELECT nom FROM tecnics WHERE id_tecnic='$tecnic_id'")->
                    d.nom AS departament
             FROM incidencies i
             LEFT JOIN departaments d ON i.departament_id = d.id_dept
-            WHERE i.tecnic_id = '$tecnic_id'
+            WHERE i.data_fi IS NOT NULL
+            AND i.tecnic_id = '$tecnic_id'
             ORDER BY i.data_ini DESC";
     $result = $conn->query($sql);
     ?>
@@ -26,7 +27,7 @@ $tecnic = $conn->query("SELECT nom FROM tecnics WHERE id_tecnic='$tecnic_id'")->
             <th>Descripció</th>
             <th>Prioritat</th>
             <th>Estat</th>
-            <th>Acció</th>
+            <th>Estat Actuacions</th>
         </tr>
         <?php while ($row = $result->fetch_assoc()):
             if ($row['prioritat'] == 'Alta') {
@@ -38,14 +39,14 @@ $tecnic = $conn->query("SELECT nom FROM tecnics WHERE id_tecnic='$tecnic_id'")->
             }
         ?>
         <tr>
-                    <tr style="background: <?php echo $color_fila; ?>;" id="fila-<?php echo $row['id_inc']; ?>">
+            <tr style="background: <?php echo $color_fila; ?>;" id="fila-<?php echo $row['id_inc']; ?>">
             <td><?= $row['id_inc'] ?></td>
             <td><?= $row['departament'] ?></td>
             <td><?= $row['data_ini'] ?></td>
             <td><?= $row['descripcio'] ?></td>
             <td><?= $row['prioritat'] ?></td>
             <td><?= $row['data_fi'] ? 'Tancada' : 'Oberta'; ?></td>
-            <td><a href="actuacions.php?id=<?= $row['id_inc'] ?>">Actualitzar</a></td>
+            <td><a href="veure_actuacions.php?incidencia_id=<?php echo $row['id_inc']; ?>">VEURE</a></td>
         </tr>
         <?php endwhile; ?>
     </table>
