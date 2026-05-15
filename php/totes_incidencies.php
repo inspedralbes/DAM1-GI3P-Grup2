@@ -1,6 +1,14 @@
 <?php
 include 'connexio.php';
 include 'header.php'; 
+
+// Eliminar incidencia si le llega GET
+if (isset($_GET['eliminar'])) {
+    $id_eliminar = (int)$_GET['eliminar'];
+    $conn->query("DELETE FROM incidencies WHERE id_inc = $id_eliminar");
+    header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
+    exit;
+}
 ?>
 
 <div style="max-width: 1200px; margin: 2rem auto; background: white; border-radius: 20px; padding: 2rem;">
@@ -49,7 +57,7 @@ include 'header.php';
             <th style="color: black;">Acció</th>
             <th style="color: black;">Eliminar</th>
         </tr>
-<!--Comanda per mostrar les dades de les incidències amb color segons la seva prioritat-->
+<!--Comanda per mostrar les dades de les incidencies amb color segons la seva prioritat-->
         <?php while ($row = $result->fetch_assoc()):
             if ($row['prioritat'] == 'Alta') {
                 $color_fila = '#ffcccc';
@@ -78,7 +86,7 @@ include 'header.php';
     <button style="background: #300c30; color: white; border: none; border-radius: 8px; padding: 0.5rem 1rem;" onclick="window.location.href='quesito.php'">Veure incidències en format quesito</button>
 </div>
 
-<!--Comanda per eliminar cada incidència-->
+<!--Comanda per eliminar cada incidencia-->
 <script>
 document.querySelectorAll('.eliminar').forEach(btn => {
     btn.onclick = () => {
