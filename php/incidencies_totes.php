@@ -2,11 +2,10 @@
 include 'connexio.php';
 include 'header.php'; 
 ?>
-
 <div style="max-width: 1200px; margin: 2rem auto; background: white; border-radius: 20px; padding: 2rem;">
     <h1 style="color: black;">Llistat d'incidències</h1>
     <div style="height: 2px; background: #764ba2; width: 100%; margin: 0.5rem 0 1.5rem 0;"></div>
-
+<!-- Opcions per ordenar les incidències -->
     <div style="margin-bottom: 1rem; text-align: right;">
         <label for="ordre" style="color: black;">Ordenar per: </label>
         <select id="ordre" onchange="window.location.href='?ordre='+this.value">

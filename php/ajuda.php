@@ -1,15 +1,15 @@
 <?php include 'header.php'; ?>
-<link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" href="css/styles.css">
-    <title>GI3P </title>
-    <h2>Ajuda</h2>
-<form action=# method="post">
-    <li>
-      <label for="Id incidencia"> Escriu aqui el teu problema</label>
-      <input type="text" id="number" name="id_incidencia" />
-    </li>
-    <li class="button">
-  <button type="submit">Consulta</button>
-</li>
-</form>
-</body>
+<?php include 'connexio.php'; ?>
+
+<div style="max-width: 500px; margin: 2rem auto; background: white; border-radius: 20px; padding: 2rem;">
+    <h1 style="color: black;">Contacte amb nosaltres</h1>
+
+    <div style="height: 2px; background: #764ba2; width: 100%; margin: 0.5rem 0 1.5rem 0;"></div>
+    
+    <!-- Formulari per identificar el tècnic -->
+        <form method="GET" action="">
+            <p style="color: black; font-weight: bold;">incidencies@inspedralbes.cat</p>
+            <br><br>
+          </form>
+          </div>
+<?php include 'footer.php'; ?>
