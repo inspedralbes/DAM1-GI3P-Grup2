@@ -33,6 +33,7 @@ include 'header.php';
             FROM incidencies i
             LEFT JOIN departaments d ON i.departament_id = d.id_dept
             LEFT JOIN tecnics t ON i.tecnic_id = t.id_tecnic
+            WHERE tecnic_id IS NOT NULL
             ORDER BY $order_by";
     $result = $conn->query($sql);
     ?>
@@ -46,8 +47,6 @@ include 'header.php';
             <th>Prioritat</th>
             <th>Tècnic</th>
             <th>Estat</th>
-            <th>Acció</th>
-            <th>Eliminar</th>
         </tr>
 <!--Comanda per mostrar les dades de les incidències amb color segons la seva prioritat-->
         <?php while ($row = $result->fetch_assoc()):
@@ -68,23 +67,11 @@ include 'header.php';
             <td><?php echo $row['prioritat']; ?></td>
             <td><?php echo $row['tecnic'] ?? '-'; ?></td>
             <td><?php echo $row['data_fi'] ? 'Tancada' : 'Oberta'; ?></td>
-            <td><a href="modificar.php?id=<?php echo $row['id_inc']; ?>" style="background: #0000ff; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; display: inline-block;">Editar</a></td>
-            <td><button type="eliminar"data-id="<?php echo $row['id_inc'];?>"style="background: #ff0000; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px;">Eliminar</button></td>
+        </tr>
         <?php endwhile; ?>
     </table>
     
     <br>
     <button style="background: #300c30; color: white;" onclick="window.location.href='quesito.php'">Veure incidències en format quesito</button>
 </div>
-<!--Comanda per eliminar cada incidència-->
-<script>
-document.querySelectorAll('.eliminar').forEach(btn => {
-    btn.onclick = () => {
-        let id = btn.getAttribute('data-id');
-        fetch(window.location.href + '?eliminar=' + id);
-        document.getElementById('fila-' + id).remove();
-    };
-});
-</script>
-
 <?php include 'footer.php'; ?>
