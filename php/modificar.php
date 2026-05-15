@@ -1,10 +1,10 @@
 <?php include 'header.php'; ?>
 <?php include 'connexio.php'; ?>
 
-<h1>Modificar estat de la incidència:</h1>
+<div style="max-width: 600px; margin: 2rem auto; background: white; border-radius: 20px; padding: 2rem;">
+    <h1 style="color: black;">Modificar estat de la incidència:</h1>
+    <div style="height: 2px; background: #764ba2; width: 100%; margin: 0.5rem 0 1.5rem 0;"></div>
 
-<div style="max-width: 600px; margin: 2rem auto; background: white; padding: 2rem;">
-    
     <!-- Demanem les dades de la incidencia -->
     <?php
     $id = $_GET['id'];
@@ -19,7 +19,6 @@
     $dades = $conn->query("SELECT * FROM incidencies WHERE id_inc='$id'")->fetch_assoc(); 
     ?>
     
-    <!-- Formulari per modificar les dades de la incidencia -->
     <form method="POST">
         
         <!-- Tècnic assignat a la incidencia -->
@@ -49,7 +48,7 @@
         </select></p>
         
         <!-- Guardar modificacions -->
-        <button type="submit">Guardar</button>
+        <button type="submit" style="background: #300c55; color: white; border: none; border-radius: 8px; padding: 0.5rem 1rem;">Guardar</button>
         <a href="totes_incidencies.php" style="color: black;">Tornar</a>
     </form>
 </div>
