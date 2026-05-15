@@ -68,7 +68,7 @@ include 'header.php';
             <td><?php echo $row['prioritat']; ?></td>
             <td><?php echo $row['tecnic'] ?? '-'; ?></td>
             <td><?php echo $row['data_fi'] ? 'Tancada' : 'Oberta'; ?></td>
-            <td><a href="modificar.php?id=<?php echo $row['id_inc']; ?>">Editar</a></td>
+            <td><a href="modificar.php?id=<?php echo $row['id_inc']; ?>" style="background: #0000ff; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; display: inline-block;">Editar</a></td>
             <td><button type="eliminar"data-id="<?php echo $row['id_inc'];?>"style="background: #ff0000; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px;">Eliminar</button></td>
         <?php endwhile; ?>
     </table>
