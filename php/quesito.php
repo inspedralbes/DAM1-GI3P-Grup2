@@ -1,17 +1,19 @@
 <?php include 'header.php'; ?>
 <?php include 'connexio.php'; ?>
 
-<h1>Estadístiques</h1>
+<div style="max-width: 800px; margin: 2rem auto; background: white; border-radius: 20px; padding: 2rem;">
+    <h1 style="color: black;">Estadístiques</h1>
+    <div style="height: 2px; background: #764ba2; width: 100%; margin: 0.5rem 0 1.5rem 0;"></div>
 
-<div style="max-width: 900px; margin: 2rem auto; background: white; padding: 2rem; text-align: center; color: black;">
+    <div style="text-align: center;">
+        <h2 style="color: black;">Minuts treballats per tècnic</h2>
+        <canvas id="q1" width="300" height="300" style="width: 300px; height: 300px; display: inline-block;"></canvas>
 
-    <h2>Minuts treballats per tècnic</h2>
-    <canvas id="q1" width="250" height="250" style="max-width:250px; margin:0 auto;"></canvas>
+        <h2 style="color: black; margin-top: 2rem;">Minuts treballats en departament</h2>
+        <canvas id="q2" width="300" height="300" style="width: 300px; height: 300px; display: inline-block;"></canvas>
 
-    <h2>Minuts treballats en departament</h2>
-    <canvas id="q2" width="250" height="250" style="max-width:250px; margin:0 auto;"></canvas>
-
-    <br><a href="totes_incidencies.php">Tornar</a>
+        <br><a href="totes_incidencies.php" style="color: black; display: inline-block; margin-top: 2rem;">Tornar</a>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -26,8 +28,17 @@ $l2=[]; $d2=[];
 while($r=$res2->fetch_assoc()){ $l2[]=$r['nom']; $d2[]=$r['total']; }
 ?>
 
-new Chart(document.getElementById('q1'),{type:'pie',data:{labels:<?=json_encode($l1)?>,datasets:[{data:<?=json_encode($d1)?>}]},options:{plugins:{legend:{display:false}}}});
-new Chart(document.getElementById('q2'),{type:'pie',data:{labels:<?=json_encode($l2)?>,datasets:[{data:<?=json_encode($d2)?>}]},options:{plugins:{legend:{display:false}}}});
+new Chart(document.getElementById('q1'),{
+    type:'pie',
+    data:{labels:<?=json_encode($l1)?>, datasets:[{data:<?=json_encode($d1)?>}]},
+    options:{ responsive: false, maintainAspectRatio: false, plugins:{legend:{display:true, position:'right'}}}
+});
+
+new Chart(document.getElementById('q2'),{
+    type:'pie',
+    data:{labels:<?=json_encode($l2)?>, datasets:[{data:<?=json_encode($d2)?>}]},
+    options:{ responsive: false, maintainAspectRatio: false, plugins:{legend:{display:true, position:'right'}}}
+});
 </script>
 
 <?php include 'footer.php'; ?>
