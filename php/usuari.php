@@ -13,13 +13,13 @@
             <i class="fas fa-search"></i><br>
             Consultar estat
         </a>
+         <a href="incidencies_totes.php" class="opcio">
+            <i class="fas fa-list"></i><br>
+            Totes les incidències
+        </a>
         <a href="incidencies_finalitzades.php" class="opcio">
             <i class="fas fa-check-circle"></i><br>
             Incidències finalitzades
-        </a>
-        <a href="incidencies_totes.php" class="opcio">
-            <i class="fas fa-list"></i><br>
-            Totes les incidències
         </a>
     </div>
 
