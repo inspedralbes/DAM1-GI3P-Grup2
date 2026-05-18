@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Básica</title>
+</head>
+<body>
+    <h1>Holaaaaaaaaa que tal!</h1>
+    <p>Este es mi documento de prueba y mi ultima prueba, no mas ya.</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<?php if (isset($_GET['success']) && isset($_GET['id'])): ?>
+        <div style="background: #d4edda; color: #155724; padding: 1rem; margin-bottom: 1rem;">
+            Incidència creada amb el ID: <strong><?php echo $_GET['id']; ?></strong>
+        </div>
+    <?php endif; ?>
+
+    <form method="POST" action="guardar_incidencia.php">
+        <select name="departament_id" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
+            <option value="">Departament</option>
+            <?php
+            $result = $conn->query("SELECT id_dept, nom FROM departaments ORDER BY nom");
+            while ($row = $result->fetch_assoc()) {
+                echo "<option value='{$row['id_dept']}'>{$row['nom']}</option>";
+            }
+            ?>
+        </select>
+        <p style="color: black;">Descripció:</p>
+        <textarea name="descripcio" rows="3" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"></textarea>
+        <button type="submit" style="width: 100%; padding: 0.5rem; background: #300c55; color: white; border: none;">Registrar</button>
+    </form>
+</div>
+
+<?php include 'footer.php'; ?>

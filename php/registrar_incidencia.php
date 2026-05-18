@@ -1,0 +1,41 @@
+<?php include 'header.php'; ?>
+<?php include 'connexio.php'; ?>
+
+<div style="max-width: 600px; margin: 2rem auto; background: white; border-radius: 20px; padding: 2rem;">
+    <h1 style="color: black;">Registrar incidència</h1>
+    
+    <div style="height: 2px; background: #764ba2; width: 100%; margin: 0.5rem 0 1.5rem 0;"></div>
+
+    <!-- Mostrem error si falta la descripcio -->
+    <?php if (isset($_GET['error']) && $_GET['error'] == 'descripcio'): ?>
+        <p style="color: red;">Has d'escriure una descripció</p>
+    <?php endif; ?>
+
+    <!-- Mostrem missatge amb l'ID generat -->
+    <?php if (isset($_GET['success']) && isset($_GET['id'])): ?>
+        <p style="color: green;">Incidència registrada correctament amb ID: <?php echo $_GET['id']; ?></p>
+        <p style="font-size: smaller; color: green;">Recorda aquest ID per fer el seguiment de la teva incidència.</p>
+    <?php endif; ?>
+    
+    <form method="POST" action="guardar_incidencia.php">
+        <p style="color: black;"><strong>Departament</strong></p>
+        <select name="departament_id" style="width: 100%; padding: 0.5rem; color: black;">
+            <option value="">Selecciona...</option>
+            <?php
+            // Carreguem els departaments desde la BD
+            $result = $conn->query("SELECT id_dept, nom FROM departaments");
+            while ($row = $result->fetch_assoc()) {
+                echo "<option value='" . $row['id_dept'] . "' style='color: black;'>" . $row['nom'] . "</option>";
+            }
+            ?>
+        </select>
+
+        <p style="color: black;"><strong>Descripció</strong></p>
+        <textarea name="descripcio" rows="4" style="width: 100%; padding: 0.5rem; color: black;"></textarea>
+
+        <br><br>
+        <button type="submit" style="background: #300c55; color: white; padding: 0.5rem 1rem; border: none;">Registrar</button>
+    </form>
+</div>
+
+<?php include 'footer.php'; ?>

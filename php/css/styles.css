@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+body {
+    font-family: 'Ubuntu', 'Segoe UI', Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background: linear-gradient(135deg, #2c0244 0%, #39055c 50%, #6c0e91 100%);
+    color: white;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+p {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.opcions {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+.opcio {
+    background: hsl(271, 30%, 30%);
+    color: white;
+    padding: 40px 30px;
+    width: 180px;
+    height: 260px;
+    text-decoration: none;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.opcio i {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.opcio:hover {
+    background: #e67e22;
+    transform: translateY(-8px);
+}

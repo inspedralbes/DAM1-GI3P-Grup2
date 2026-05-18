@@ -1,0 +1,10 @@
+FROM php:8.2-apache
+
+RUN apt-get update && apt-get install -y \
+    libssl-dev \
+    unzip \
+    git \
+    && docker-php-ext-install mysqli \
+    && pecl install mongodb \
+    && docker-php-ext-enable mongodb \
+    && a2enmod rewrite
